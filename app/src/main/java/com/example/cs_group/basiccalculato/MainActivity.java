@@ -1,7 +1,7 @@
 package com.example.cs_group.basiccalculato;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,19 +15,16 @@ public class MainActivity extends AppCompatActivity {
     /**
      * @param mValueOne
      * first number of functions
-     *
      * @param mValueTwo
      * second number of functions
      */
-    float mValueOne , mValueTwo ;
+    float mValueOne, mValueTwo;
 
     /**
      * @param mAddition
      * if user click Add button the mAddition value is set True on the click listener of Add button.
      */
-    boolean mAddition , mSubtract ,mMultiplication ,mDivision ;
-
-
+    boolean mAddition, mSubtract, mMultiplication, mDivision;
 
 
     @Override
@@ -39,8 +36,7 @@ public class MainActivity extends AppCompatActivity {
          * Initialize each view of activity_main.xml like buttons and editText
          * set OnClickListener for buttonClear
          * set OnClickListener for buttonPoint
-          */
-
+         */
 
         /**
          * @mKarimian
@@ -50,8 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         /**
          * @sMarshi
-         * set OnClickListener for button button0 to button 9
-         *
+         * set OnClickListener for buttonEqual
          */
     }
 }
