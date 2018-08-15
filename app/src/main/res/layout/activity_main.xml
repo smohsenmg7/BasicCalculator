@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <!--FMaghami:
+    Design very basic Layout for Calculator:
+
+    Design 10 button for Numbers on calculator>>ID: button0, button1, button2, ..., button9
+    Design a button for Point in numbers like 5.4 or 2.55 (.)>>     ID: buttonPoint
+    Design a button for Addiction(+)        >>    ID: buttonAddiction
+    Design a button for Subtraction (-)    >>     ID: buttonSubtraction
+    Design a button for Multiplication(*) >>      ID: buttonMultiplication
+    Design a button for Division(/)        >>      ID: buttonDivision
+    Design a button for Equal(=)        >>          ID: buttonEqual
+    Design a button for Clear (C)         >>     ID: buttonClear
+    Design an EditText on top of layout for showing numbers and function>> ID: editTextView
+    -->
+
+
+</android.support.constraint.ConstraintLayout>
