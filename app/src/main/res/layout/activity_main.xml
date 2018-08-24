@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -44,6 +43,7 @@
         android:layout_width="53dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/buttonEqual"
+        android:layout_alignLeft="@+id/buttonEqual"
         android:layout_alignStart="@+id/buttonEqual"
         android:text="." />
 
@@ -53,6 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/buttonPoint"
         android:layout_toEndOf="@+id/buttonPoint"
+        android:layout_toRightOf="@+id/buttonPoint"
         android:text="0" />
 
     <Button
@@ -61,6 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/buttonEqual"
         android:layout_toEndOf="@+id/button0"
+        android:layout_toRightOf="@+id/button0"
         android:text="c" />
 
     <Button
@@ -69,6 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/buttonEqual"
         android:layout_alignEnd="@+id/buttonEqual"
+        android:layout_alignRight="@+id/buttonEqual"
         android:text="+" />
 
     <Button
@@ -76,6 +79,7 @@
         android:layout_width="53dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/buttonPoint"
+        android:layout_alignLeft="@+id/editTextView"
         android:layout_alignStart="@+id/editTextView"
         android:text="1" />
 
@@ -85,6 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/buttonPoint"
         android:layout_toEndOf="@+id/buttonPoint"
+        android:layout_toRightOf="@+id/buttonPoint"
         android:text="2" />
 
     <Button
@@ -101,6 +106,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/buttonPoint"
         android:layout_alignEnd="@+id/editTextView"
+        android:layout_alignRight="@+id/editTextView"
         android:text="_" />
 
     <Button
@@ -108,6 +114,7 @@
         android:layout_width="53dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/button1"
+        android:layout_alignLeft="@+id/editTextView"
         android:layout_alignStart="@+id/editTextView"
         android:text="4" />
 
@@ -117,6 +124,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/button1"
         android:layout_toEndOf="@+id/button1"
+        android:layout_toRightOf="@+id/button1"
         android:text="5" />
 
     <Button
@@ -133,6 +141,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/button1"
         android:layout_alignEnd="@+id/editTextView"
+        android:layout_alignRight="@+id/editTextView"
         android:text="×" />
 
     <Button
@@ -140,6 +149,7 @@
         android:layout_width="53dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/button4"
+        android:layout_alignLeft="@+id/editTextView"
         android:layout_alignStart="@+id/editTextView"
         android:text="7" />
 
@@ -149,6 +159,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/button4"
         android:layout_toEndOf="@+id/buttonPoint"
+        android:layout_toRightOf="@+id/buttonPoint"
         android:text="8" />
 
     <Button
@@ -165,6 +176,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/button4"
         android:layout_alignEnd="@+id/editTextView"
+        android:layout_alignRight="@+id/editTextView"
         android:text="÷" />
 
 </RelativeLayout>
