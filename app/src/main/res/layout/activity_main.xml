@@ -107,7 +107,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/buttonPoint"
         android:layout_alignEnd="@+id/editTextView"
-        android:text="_"
+        android:text="-"
         android:layout_alignRight="@+id/editTextView" />
 
     <Button
