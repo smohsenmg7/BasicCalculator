@@ -7,16 +7,14 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText et;
-    Button bt1,bt2,bt3,bt4,bt5,bt6,bt7,bt8,bt9,bt0,btPoint,btClear;
-    Button btAddiction,btSubtraction,btMultiplication,btDivision,btEqual;
-
     /**
      * @fMaghami
      * Declare each view of activity_main.xml like buttons and editText
      * name of each view should be ths same as its ID;
      */
-
+    EditText et;
+    Button bt1, bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9, bt0, btPoint, btClear;
+    Button btAddiction, btSubtraction, btMultiplication, btDivision, btEqual;
 
     /**
      * @param mValueOne
@@ -38,30 +36,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        et = findViewById(R.id.editText);
-        bt0= findViewById(R.id.button0);
-        bt1= findViewById(R.id.button1);
-        bt2= findViewById(R.id.button2);
-        bt3= findViewById(R.id.button3);
-        bt4= findViewById(R.id.button4);
-        bt5= findViewById(R.id.button5);
-        bt6= findViewById(R.id.button6);
-        bt7= findViewById(R.id.button7);
-        bt8= findViewById(R.id.button8);
-        bt9= findViewById(R.id.button9);
-        btEqual= findViewById(R.id.buttonEqual);
-        btClear= findViewById(R.id.buttonClear);
-        btPoint= findViewById(R.id.buttonPoint);
-        btDivision= findViewById(R.id.buttonDivision);
-        btAddiction= findViewById(R.id.buttonAddiction);
-        btSubtraction= findViewById(R.id.buttonSubtraction);
-        btMultiplication= findViewById(R.id.buttonMultiplication);
-        /**
-         * @fMaghami
-         * Initialize each view of activity_main.xml like buttons and editText
-         * set OnClickListener for buttonClear
-         * set OnClickListener for buttonPoint
-         */
+/**
+ * @fMaghami
+ * Initialize each view of activity_main.xml like buttons and editText
+ * set OnClickListener for buttonClear
+ * set OnClickListener for buttonPoint
+ */
+        et = findViewById(R.id.editTextView);
+        bt0 = findViewById(R.id.button0);
+        bt1 = findViewById(R.id.button1);
+        bt2 = findViewById(R.id.button2);
+        bt3 = findViewById(R.id.button3);
+        bt4 = findViewById(R.id.button4);
+        bt5 = findViewById(R.id.button5);
+        bt6 = findViewById(R.id.button6);
+        bt7 = findViewById(R.id.button7);
+        bt8 = findViewById(R.id.button8);
+        bt9 = findViewById(R.id.button9);
+        btEqual = findViewById(R.id.buttonEqual);
+        btClear = findViewById(R.id.buttonClear);
+        btPoint = findViewById(R.id.buttonPoint);
+        btDivision = findViewById(R.id.buttonDivision);
+        btAddiction = findViewById(R.id.buttonAddiction);
+        btSubtraction = findViewById(R.id.buttonSubtraction);
+        btMultiplication = findViewById(R.id.buttonMultiplication);
+
 
         /**
          * @mKarimian
