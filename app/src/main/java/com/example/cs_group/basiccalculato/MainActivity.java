@@ -10,7 +10,6 @@ public class MainActivity extends AppCompatActivity {
     /**
      * @fMaghami
      * Declare each view of activity_main.xml like buttons and editText
-     * name of each view should be ths same as its ID;
      */
     EditText et;
     Button bt1, bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9, bt0, btPoint, btClear;
