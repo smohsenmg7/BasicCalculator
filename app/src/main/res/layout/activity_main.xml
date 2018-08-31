@@ -45,7 +45,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/buttonEqual"
         android:layout_alignStart="@+id/buttonEqual"
-        android:text="." />
+        android:text="."
+        android:layout_alignLeft="@+id/buttonEqual" />
 
     <Button
         android:id="@+id/button0"
@@ -53,7 +54,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/buttonPoint"
         android:layout_toEndOf="@+id/buttonPoint"
-        android:text="0" />
+        android:text="0"
+        android:layout_toRightOf="@+id/buttonPoint" />
 
     <Button
         android:id="@+id/buttonClear"
@@ -61,7 +63,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/buttonEqual"
         android:layout_toEndOf="@+id/button0"
-        android:text="c" />
+        android:text="c"
+        android:layout_toRightOf="@+id/button0" />
 
     <Button
         android:id="@+id/buttonAddiction"
@@ -69,7 +72,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/buttonEqual"
         android:layout_alignEnd="@+id/buttonEqual"
-        android:text="+" />
+        android:text="+"
+        android:layout_alignRight="@+id/buttonEqual" />
 
     <Button
         android:id="@+id/button1"
@@ -77,7 +81,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/buttonPoint"
         android:layout_alignStart="@+id/editTextView"
-        android:text="1" />
+        android:text="1"
+        android:layout_alignLeft="@+id/editTextView" />
 
     <Button
         android:id="@+id/button2"
@@ -85,7 +90,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/buttonPoint"
         android:layout_toEndOf="@+id/buttonPoint"
-        android:text="2" />
+        android:text="2"
+        android:layout_toRightOf="@+id/buttonPoint" />
 
     <Button
         android:id="@+id/button3"
@@ -101,7 +107,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/buttonPoint"
         android:layout_alignEnd="@+id/editTextView"
-        android:text="_" />
+        android:text="_"
+        android:layout_alignRight="@+id/editTextView" />
 
     <Button
         android:id="@+id/button4"
@@ -109,7 +116,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/button1"
         android:layout_alignStart="@+id/editTextView"
-        android:text="4" />
+        android:text="4"
+        android:layout_alignLeft="@+id/editTextView" />
 
     <Button
         android:id="@+id/button5"
@@ -117,7 +125,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/button1"
         android:layout_toEndOf="@+id/button1"
-        android:text="5" />
+        android:text="5"
+        android:layout_toRightOf="@+id/button1" />
 
     <Button
         android:id="@+id/button6"
@@ -133,7 +142,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/button1"
         android:layout_alignEnd="@+id/editTextView"
-        android:text="×" />
+        android:text="×"
+        android:layout_alignRight="@+id/editTextView" />
 
     <Button
         android:id="@+id/button7"
@@ -141,7 +151,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/button4"
         android:layout_alignStart="@+id/editTextView"
-        android:text="7" />
+        android:text="7"
+        android:layout_alignLeft="@+id/editTextView" />
 
     <Button
         android:id="@+id/button8"
@@ -149,7 +160,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/button4"
         android:layout_toEndOf="@+id/buttonPoint"
-        android:text="8" />
+        android:text="8"
+        android:layout_toRightOf="@+id/buttonPoint" />
 
     <Button
         android:id="@+id/button9"
@@ -165,6 +177,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/button4"
         android:layout_alignEnd="@+id/editTextView"
-        android:text="÷" />
+        android:text="÷"
+        android:layout_alignRight="@+id/editTextView" />
 
 </RelativeLayout>
