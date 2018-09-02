@@ -41,16 +41,15 @@ public class MainActivity extends AppCompatActivity {
         btAddition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(equalEffect){
+                if (equalEffect) {
                     variables.add(et.getText().toString());
-                }
-                else{
-                variables.add(TempVariable);
+                } else {
+                    variables.add(TempVariable);
                 }
                 et.setText(et.getText() + "+");
                 operations.add("plus");
                 TempVariable = "";
-                equalEffect=false;
+                equalEffect = false;
             }
         });
 
@@ -58,15 +57,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 et.setText(et.getText() + "-");
-                if(equalEffect){
+                if (equalEffect) {
                     variables.add(et.getText().toString());
+                } else {
                 }
-                else{
-                }
-                    variables.add(TempVariable);
+                variables.add(TempVariable);
                 operations.add("minus");
                 TempVariable = "";
-                equalEffect=false;
+                equalEffect = false;
             }
         });
 
@@ -74,15 +72,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 et.setText(et.getText() + "×");
-                if(equalEffect){
+                if (equalEffect) {
                     variables.add(et.getText().toString());
-                }
-                else{
+                } else {
                     variables.add(TempVariable);
                 }
                 operations.add("multiple");
                 TempVariable = "";
-                equalEffect=false;
+                equalEffect = false;
             }
         });
 
@@ -90,15 +87,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 et.setText(et.getText() + "÷");
-                if(equalEffect){
+                if (equalEffect) {
                     variables.add(et.getText().toString());
-                }
-                else{
+                } else {
                     variables.add(TempVariable);
                 }
                 operations.add("division");
                 TempVariable = "";
-                equalEffect=false;
+                equalEffect = false;
             }
         });
         btClear.setOnClickListener(new View.OnClickListener() {
@@ -107,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                 variables.clear();
                 operations.clear();
                 et.setText("");
-                equalEffect=false;
+                equalEffect = false;
             }
         });
         btEqual.setOnClickListener(new View.OnClickListener() {
@@ -152,33 +148,32 @@ public class MainActivity extends AppCompatActivity {
                             break;
                     }
                 }
-
                 et.setText(variables.get(0));
                 operations.clear();
                 variables.clear();
-                equalEffect=true;
+                equalEffect = true;
             }
         });
     }
 
     public String Plus(int indexOfOperation) {
         double result = Double.parseDouble(variables.get(indexOfOperation)) + Double.parseDouble(variables.get(indexOfOperation + 1));
-        return "" + result;
+        return Double.toString(result);
     }
 
     public String Minus(int indexOfOperation) {
         double result = Double.parseDouble(variables.get(indexOfOperation)) - Double.parseDouble(variables.get(indexOfOperation + 1));
-        return "" + result;
+        return Double.toString(result);
     }
 
     public String Multiple(int indexOfOperation) {
         double result = Double.parseDouble(variables.get(indexOfOperation)) * Double.parseDouble(variables.get(indexOfOperation + 1));
-        return "" + result;
+        return Double.toString(result);
     }
 
-    public String Division(int indexOfOparation) {
-        double result = Double.parseDouble(variables.get(indexOfOparation)) / Double.parseDouble(variables.get(indexOfOparation + 1));
-        return "" + result;
+    public String Division(int indexOfOperation) {
+        double result = Double.parseDouble(variables.get(indexOfOperation)) / Double.parseDouble(variables.get(indexOfOperation + 1));
+        return Double.toString(result);
     }
 
     //  After Executing each operation, Refactor method will place Result in index 0 of Variables ArrayList
