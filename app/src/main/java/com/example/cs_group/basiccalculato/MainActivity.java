@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     //    Declare All of views
     EditText et;
     Button bt1, bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9, bt0, btPoint, btClear,
-            btAddition, btSubtraction, btMultiplication, btDivision, btEqual;
+            btAddition, btSubtraction, btMultiplication, btDivision, btEqual, btDelete;
 
     boolean equalEffect = false;// button effect on reaction of buttons when tapping them
 
@@ -56,12 +56,12 @@ public class MainActivity extends AppCompatActivity {
         btSubtraction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                et.setText(et.getText() + "-");
                 if (equalEffect) {
                     variables.add(et.getText().toString());
                 } else {
+                    variables.add(TempVariable);
                 }
-                variables.add(TempVariable);
+                et.setText(et.getText() + "-");
                 operations.add("minus");
                 TempVariable = "";
                 equalEffect = false;
@@ -103,7 +103,43 @@ public class MainActivity extends AppCompatActivity {
                 variables.clear();
                 operations.clear();
                 et.setText("");
+                TempVariable = "";
                 equalEffect = false;
+            }
+        });
+        btDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!et.getText().toString().isEmpty()) {
+                    char lastChar = et.getText().charAt(et.getText().length() - 1);
+                    if (lastChar == '+' || lastChar == '-' || lastChar == '×' || lastChar == '÷') {
+                        operations.remove((operations.size() - 1));
+                    } else {
+                        if (TempVariable.isEmpty() && !variables.isEmpty()) {
+                            if (variables.get(variables.size() - 1).length() == 1 || variables.get(variables.size() - 1).length() == 0) {
+                                variables.remove(variables.size() - 1);
+                            } else {
+                                String replaceString = variables.get(variables.size() - 1).substring(0, variables.get(variables.size() - 1).length() - 1);
+                                variables.set((variables.size() - 1), replaceString);
+                            }
+                        }
+                    }
+                    et.setText(et.getText().toString().substring(0, et.getText().length() - 1));
+                }
+                if (!TempVariable.isEmpty()) {
+                    TempVariable = TempVariable.substring(0, TempVariable.length() - 1);
+                }
+            }
+        });
+        btDelete.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                variables.clear();
+                operations.clear();
+                et.setText("");
+                TempVariable = "";
+                equalEffect = false;
+                return false;
             }
         });
         btEqual.setOnClickListener(new View.OnClickListener() {
@@ -162,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public String Minus(int indexOfOperation) {
-        double result = Double.parseDouble(variables.get(indexOfOperation)) - Double.parseDouble(variables.get(indexOfOperation + 1));
+        double result = Double.parseDouble(variables.get(indexOfOperation )) - Double.parseDouble(variables.get(indexOfOperation+1));
         return Double.toString(result);
     }
 
@@ -300,6 +336,7 @@ public class MainActivity extends AppCompatActivity {
         btEqual = findViewById(R.id.buttonEqual);
         btClear = findViewById(R.id.buttonClear);
         btPoint = findViewById(R.id.buttonPoint);
+        btDelete = findViewById(R.id.buttonDelete);
         btDivision = findViewById(R.id.buttonDivision);
         btAddition = findViewById(R.id.buttonAddiction);
         btSubtraction = findViewById(R.id.buttonSubtraction);

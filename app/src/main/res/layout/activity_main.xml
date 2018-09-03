@@ -175,9 +175,18 @@
         android:id="@+id/buttonDivision"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button4"
+        android:layout_above="@+id/button7"
         android:layout_alignEnd="@+id/editTextView"
         android:text="÷"
         android:layout_alignRight="@+id/editTextView" />
+
+    <Button
+        android:id="@+id/buttonDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button4"
+        android:layout_alignEnd="@+id/editTextView"
+        android:layout_alignRight="@+id/editTextView"
+        android:text="del" />
 
 </RelativeLayout>
