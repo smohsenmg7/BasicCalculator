@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
             btAddition, btSubtraction, btMultiplication, btDivision, btEqual, btDelete;
 
     boolean equalEffect = false;// button effect on reaction of buttons when tapping them
-    boolean pointEffect=false;//button prevent user to input more than one point in number
+    boolean pointEffect = false;//button prevent user to input more than one point in number
 
     String TempVariable = "";// this variable get updated till user input an operator
 
@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 operations.add("plus");
                 TempVariable = "";
                 equalEffect = false;
+                pointEffect=false;
             }
         });
 
@@ -66,8 +67,10 @@ public class MainActivity extends AppCompatActivity {
                 operations.add("minus");
                 TempVariable = "";
                 equalEffect = false;
+                pointEffect = false;
             }
         });
+
 
         btMultiplication.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                 operations.add("multiple");
                 TempVariable = "";
                 equalEffect = false;
+                pointEffect = false;
             }
         });
 
@@ -96,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 operations.add("division");
                 TempVariable = "";
                 equalEffect = false;
+                pointEffect = false;
             }
         });
         btClear.setOnClickListener(new View.OnClickListener() {
@@ -106,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
                 et.setText("");
                 TempVariable = "";
                 equalEffect = false;
+                pointEffect = false;
             }
         });
         btDelete.setOnClickListener(new View.OnClickListener() {
@@ -140,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
                 et.setText("");
                 TempVariable = "";
                 equalEffect = false;
+                pointEffect = false;
                 return false;
             }
         });
@@ -226,9 +233,9 @@ public class MainActivity extends AppCompatActivity {
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (( TempVariable.equals("0"))) {
+                if ((TempVariable.equals("0"))) {
                     TempVariable = "1";
-                    et.setText(et.getText().toString().substring(0,et.getText().length()-1));
+                    et.setText(et.getText().toString().substring(0, et.getText().length() - 1));
                     et.setText(et.getText() + "1");
                 } else {
                     TempVariable += "1";
@@ -242,7 +249,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if ((TempVariable.equals("0"))) {
                     TempVariable = "2";
-                    et.setText(et.getText().toString().substring(0,et.getText().length()-1));
+                    et.setText(et.getText().toString().substring(0, et.getText().length() - 1));
                     et.setText(et.getText() + "2");
                 } else {
                     TempVariable += "2";
@@ -256,7 +263,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if ((TempVariable.equals("0"))) {
                     TempVariable = "3";
-                    et.setText(et.getText().toString().substring(0,et.getText().length()-1));
+                    et.setText(et.getText().toString().substring(0, et.getText().length() - 1));
                     et.setText(et.getText() + "3");
                 } else {
                     TempVariable += "3";
@@ -270,7 +277,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if ((TempVariable.equals("0"))) {
                     TempVariable = "4";
-                    et.setText(et.getText().toString().substring(0,et.getText().length()-1));
+                    et.setText(et.getText().toString().substring(0, et.getText().length() - 1));
                     et.setText(et.getText() + "4");
                 } else {
                     TempVariable += "4";
@@ -285,7 +292,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if ((TempVariable.equals("0"))) {
                     TempVariable = "5";
-                    et.setText(et.getText().toString().substring(0,et.getText().length()-1));
+                    et.setText(et.getText().toString().substring(0, et.getText().length() - 1));
                     et.setText(et.getText() + "5");
                 } else {
                     TempVariable += "5";
@@ -300,7 +307,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if ((TempVariable.equals("0"))) {
                     TempVariable = "6";
-                    et.setText(et.getText().toString().substring(0,et.getText().length()-1));
+                    et.setText(et.getText().toString().substring(0, et.getText().length() - 1));
                     et.setText(et.getText() + "6");
                 } else {
                     TempVariable += "6";
@@ -315,7 +322,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if ((TempVariable.equals("0"))) {
                     TempVariable = "7";
-                    et.setText(et.getText().toString().substring(0,et.getText().length()-1));
+                    et.setText(et.getText().toString().substring(0, et.getText().length() - 1));
                     et.setText(et.getText() + "7");
                 } else {
                     TempVariable += "7";
@@ -330,7 +337,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if ((TempVariable.equals("0"))) {
                     TempVariable = "8";
-                    et.setText(et.getText().toString().substring(0,et.getText().length()-1));
+                    et.setText(et.getText().toString().substring(0, et.getText().length() - 1));
                     et.setText(et.getText() + "8");
                 } else {
                     TempVariable += "8";
@@ -345,7 +352,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if ((TempVariable.equals("0"))) {
                     TempVariable = "9";
-                    et.setText(et.getText().toString().substring(0,et.getText().length()-1));
+                    et.setText(et.getText().toString().substring(0, et.getText().length() - 1));
                     et.setText(et.getText() + "9");
                 } else {
                     TempVariable += "9";
@@ -367,12 +374,13 @@ public class MainActivity extends AppCompatActivity {
         btPoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (et.getText().toString().isEmpty()){
+                if (TempVariable.isEmpty()) {
                     et.setText(et.getText() + "0.");
                     TempVariable += "0.";
-                }else if (!pointEffect)
-                et.setText(et.getText() + ".");
+                } else if (!pointEffect)
+                    et.setText(et.getText() + ".");
                 TempVariable += ".";
+                pointEffect = true;
 
             }
         });
