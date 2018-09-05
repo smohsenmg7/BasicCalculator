@@ -20,6 +20,7 @@
     Design a button for Clear (C)         >>     ID: buttonClear
     Design an EditText on top of layout for showing numbers and function>> ID: editTextView
     -->
+
     <EditText
         android:id="@+id/editTextView"
         android:layout_width="263dp"
