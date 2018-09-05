@@ -198,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public String Minus(int indexOfOperation) {
-        double result = Double.parseDouble(variables.get(indexOfOperation )) - Double.parseDouble(variables.get(indexOfOperation+1));
+        double result = Double.parseDouble(variables.get(indexOfOperation)) - Double.parseDouble(variables.get(indexOfOperation + 1));
         return Double.toString(result);
     }
 
@@ -225,35 +225,52 @@ public class MainActivity extends AppCompatActivity {
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                et.setText(et.getText() + "1");
-                TempVariable += "1";
-
+                if ((et.getText().toString().length() == 1 && et.getText().toString().equals("0"))) {
+                    TempVariable = "1";
+                    et.setText("1");
+                } else {
+                    TempVariable += "1";
+                    et.setText(et.getText() + "1");
+                }
             }
         });
 
         bt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                et.setText(et.getText() + "2");
-                TempVariable += "2";
-
+                if ((et.getText().toString().length() == 1 && et.getText().toString().equals("0"))) {
+                    TempVariable = "2";
+                    et.setText("2");
+                } else {
+                    TempVariable += "2";
+                    et.setText(et.getText() + "2");
+                }
             }
         });
 
         bt3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                et.setText(et.getText() + "3");
-                TempVariable += "3";
-
+                if ((et.getText().toString().length() == 1 && et.getText().toString().equals("0"))) {
+                    TempVariable = "3";
+                    et.setText("3");
+                } else {
+                    TempVariable += "3";
+                    et.setText(et.getText() + "3");
+                }
             }
         });
 
         bt4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                et.setText(et.getText() + "4");
-                TempVariable += "4";
+                if ((et.getText().toString().length() == 1 && et.getText().toString().equals("0"))) {
+                    TempVariable = "4";
+                    et.setText("4");
+                } else {
+                    TempVariable += "4";
+                    et.setText(et.getText() + "4");
+                }
 
             }
         });
@@ -261,8 +278,13 @@ public class MainActivity extends AppCompatActivity {
         bt5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                et.setText(et.getText() + "5");
-                TempVariable += "5";
+                if ((et.getText().toString().length() == 1 && et.getText().toString().equals("0"))) {
+                    TempVariable = "5";
+                    et.setText("5");
+                } else {
+                    TempVariable += "5";
+                    et.setText(et.getText() + "5");
+                }
 
             }
         });
@@ -270,8 +292,13 @@ public class MainActivity extends AppCompatActivity {
         bt6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                et.setText(et.getText() + "6");
-                TempVariable += "6";
+                if ((et.getText().toString().length() == 1 && et.getText().toString().equals("0"))) {
+                    TempVariable = "6";
+                    et.setText("6");
+                } else {
+                    TempVariable += "6";
+                    et.setText(et.getText() + "6");
+                }
 
             }
         });
@@ -279,8 +306,13 @@ public class MainActivity extends AppCompatActivity {
         bt7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                et.setText(et.getText() + "7");
-                TempVariable += "7";
+                if ((et.getText().toString().length() == 1 && et.getText().toString().equals("0"))) {
+                    TempVariable = "7";
+                    et.setText("7");
+                } else {
+                    TempVariable += "7";
+                    et.setText(et.getText() + "7");
+                }
 
             }
         });
@@ -288,8 +320,13 @@ public class MainActivity extends AppCompatActivity {
         bt8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                et.setText(et.getText() + "8");
-                TempVariable += "8";
+                if ((et.getText().toString().length() == 1 && et.getText().toString().equals("0"))) {
+                    TempVariable = "8";
+                    et.setText("8");
+                } else {
+                    TempVariable += "8";
+                    et.setText(et.getText() + "8");
+                }
 
             }
         });
@@ -297,8 +334,13 @@ public class MainActivity extends AppCompatActivity {
         bt9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                et.setText(et.getText() + "9");
-                TempVariable += "9";
+                if ((et.getText().toString().length() == 1 && et.getText().toString().equals("0"))) {
+                    TempVariable = "9";
+                    et.setText("9");
+                } else {
+                    TempVariable += "9";
+                    et.setText(et.getText() + "9");
+                }
 
             }
         });
@@ -306,11 +348,12 @@ public class MainActivity extends AppCompatActivity {
         bt0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                et.setText(et.getText() + "0");
-                TempVariable += "0";
+                if (!(et.getText().toString().length() == 1 && et.getText().toString().equals("0"))) {
+                    et.setText(et.getText() + "0");
+                    TempVariable += "0";
+                }
             }
         });
-
         btPoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -318,7 +361,6 @@ public class MainActivity extends AppCompatActivity {
                 TempVariable += ".";
             }
         });
-
     }
 
     private void initializeAllOfViews() {
