@@ -2,9 +2,12 @@ package com.example.cs_group.basiccalculato;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -21,9 +24,10 @@ public class MainActivity extends AppCompatActivity {
     Button bt1, bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9, bt0, btPoint, btClear,
             btAddition, btSubtraction, btMultiplication, btDivision, btEqual, btDelete;
 
-    boolean equalEffect = false;// button effect on reaction of buttons when tapping them
+    boolean equalEffect = false, Error = false;// button effect on reaction of buttons when tapping them
 
     String TempVariable = "";// this variable get updated till user input an operator
+    boolean isNegative; // is number negative or not
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,69 +45,103 @@ public class MainActivity extends AppCompatActivity {
         btAddition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (equalEffect) {
-                    variables.add(et.getText().toString());
+                operatorAfterEqual(equalEffect);
+                if (variables.size() == 0 && TempVariable.equals("") && !equalEffect) {
+                    // pass Division Button
                 } else {
-                    variables.add(TempVariable);
+                    if (variables.size() == operations.size() && TempVariable.equals("")) {
+                        et.setText(shrink(et.getText(), "+"));
+                        operations.set(operations.size() - 1, "plus");
+                    } else {
+                        variables.add(TempVariable);
+                        et.setText(et.getText() + "+");
+                        operations.add("plus");
+                    }
+                    TempVariable = "";
+                    equalEffect = false;
                 }
-                et.setText(et.getText() + "+");
-                operations.add("plus");
-                TempVariable = "";
-                equalEffect = false;
             }
         });
 
         btSubtraction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (equalEffect) {
-                    variables.add(et.getText().toString());
+                operatorAfterEqual(equalEffect);
+                if (variables.size() == 0 && TempVariable.equals("")) {
+                    et.setText(et.getText() + "-");
+                    TempVariable += "-";
                 } else {
-                    variables.add(TempVariable);
+                    if (equalEffect) {
+                        variables.add(et.getText().toString());
+                    } else {
+                        if (variables.size() == operations.size() && TempVariable.equals("")) {
+                            et.setText(shrink(et.getText(), "-"));
+                            operations.set(operations.size() - 1, "minus");
+                        } else {
+                            variables.add(TempVariable);
+                            et.setText(et.getText() + "-");
+                            operations.add("minus");
+                        }
+                    }
+                    TempVariable = "";
+                    equalEffect = false;
                 }
-                et.setText(et.getText() + "-");
-                operations.add("minus");
-                TempVariable = "";
-                equalEffect = false;
             }
         });
 
         btMultiplication.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                et.setText(et.getText() + "×");
-                if (equalEffect) {
-                    variables.add(et.getText().toString());
+                operatorAfterEqual(equalEffect);
+                if (variables.size() == 0 && TempVariable.equals("")) {
+                    // pass Division Button
                 } else {
-                    variables.add(TempVariable);
+                    if (equalEffect) {
+                        variables.add(et.getText().toString());
+                    } else {
+                        if (variables.size() == operations.size() && TempVariable.equals("")) {
+                            et.setText(shrink(et.getText(), "×"));
+                            operations.set(operations.size() - 1, "multiple");
+                        } else {
+                            variables.add(TempVariable);
+                            et.setText(et.getText() + "×");
+                            operations.add("multiple");
+                        }
+                    }
+                    TempVariable = "";
+                    equalEffect = false;
                 }
-                operations.add("multiple");
-                TempVariable = "";
-                equalEffect = false;
             }
         });
-
+        //÷
         btDivision.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                et.setText(et.getText() + "÷");
-                if (equalEffect) {
-                    variables.add(et.getText().toString());
+                operatorAfterEqual(equalEffect);
+                if (variables.size() == 0 && TempVariable.equals("")) {
+                    // pass Division Button
                 } else {
-                    variables.add(TempVariable);
+                    if (equalEffect) {
+                        variables.add(et.getText().toString());
+                    } else {
+                        if (variables.size() == operations.size() && TempVariable.equals("") && !equalEffect) {
+                            et.setText(shrink(et.getText(), "÷"));
+                            operations.set(operations.size() - 1, "division");
+                        } else {
+                            variables.add(TempVariable);
+                            et.setText(et.getText() + "÷");
+                            operations.add("division");
+                        }
+                    }
+                    TempVariable = "";
+                    equalEffect = false;
                 }
-                operations.add("division");
-                TempVariable = "";
-                equalEffect = false;
             }
         });
         btClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                variables.clear();
-                operations.clear();
-                et.setText("");
-                TempVariable = "";
+                Clear();
                 equalEffect = false;
             }
         });
@@ -134,97 +172,86 @@ public class MainActivity extends AppCompatActivity {
         btDelete.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                variables.clear();
-                operations.clear();
-                et.setText("");
-                TempVariable = "";
-                equalEffect = false;
+                Clear();
                 return false;
             }
         });
+
         btEqual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                variables.add(TempVariable);
-                TempVariable = "";
+                CheckForErrors();
+                EqualMethodConditions();
+                int priority = 1;
 
-                for (int i = 0; i < operations.size(); i++) {
-                    if (variables.size() == 0)
-                        et.setText("");
-                    if (variables.size() == 1)
-                        et.setText(variables.get(0));
-                    String ops = operations.get(i);
-
-                    switch (ops) {
-                        case "multiple":
-                            Refactor(operations.indexOf(ops), Multiple(operations.indexOf(ops)));
-                            i--;
-                            break;
-                        case "division":
-                            Refactor(operations.indexOf(ops), Division(operations.indexOf(ops)));
-                            i--;
-                            break;
+                while (priority <= 2 && !Error) {
+                    int pos = 0;
+                    boolean check;
+                    for (; pos < operations.size(); pos++) {
+                        switch (priority) {
+                            case 1:
+                                check = CulculateForPriorityOne(pos, operations.get(pos));
+                                if (check) {
+                                    pos--;
+                                }
+                                break;
+                            case 2:
+                                check = CulculateForPriorityTwo(pos, operations.get(pos));
+                                if (check) {
+                                    pos--;
+                                }
+                                break;
+                        }
                     }
+                    priority++;
                 }
-                for (int i = 0; i < operations.size(); i++) {
-                    if (variables.size() == 0)
-                        et.setText("");
-                    if (variables.size() == 1)
-                        et.setText(variables.get(0));
-                    String ops = operations.get(i);
-
-                    switch (ops) {
-                        case "plus":
-                            Refactor(operations.indexOf(ops), Plus(operations.indexOf(ops)));
-                            i--;
-                            break;
-                        case "minus":
-                            Refactor(operations.indexOf(ops), Minus(operations.indexOf(ops)));
-                            i--;
-                            break;
-                    }
+                if (Error) {
+                    Clear();
+                    et.setText("Error");
+                } else {
+                    equalEffect = true;
+                    TempVariable = variables.get(0);
+                    et.setText(variables.get(0));
                 }
-                et.setText(variables.get(0));
-                operations.clear();
-                variables.clear();
-                equalEffect = true;
             }
         });
     }
 
-    public String Plus(int indexOfOperation) {
-        double result = Double.parseDouble(variables.get(indexOfOperation)) + Double.parseDouble(variables.get(indexOfOperation + 1));
-        return Double.toString(result);
+    public void Plus(int pos) {
+        if (variables.get(pos + 1) == null) {
+        } else {
+            variables.set(pos, Double.parseDouble(variables.get(pos)) + Double.parseDouble(variables.get(pos + 1)) + "");
+        }
     }
 
-    public String Minus(int indexOfOperation) {
-        double result = Double.parseDouble(variables.get(indexOfOperation )) - Double.parseDouble(variables.get(indexOfOperation+1));
-        return Double.toString(result);
+    public void Minus(int pos) {
+        if (variables.get(pos + 1) == null) {
+        } else {
+            variables.set(pos, Double.parseDouble(variables.get(pos)) - Double.parseDouble(variables.get(pos + 1)) + "");
+        }
     }
 
-    public String Multiple(int indexOfOperation) {
-        double result = Double.parseDouble(variables.get(indexOfOperation)) * Double.parseDouble(variables.get(indexOfOperation + 1));
-        return Double.toString(result);
+    public void Multiple(int pos) {
+        if (variables.get(pos + 1) == null) {
+        } else {
+            variables.set(pos, Double.parseDouble(variables.get(pos)) * Double.parseDouble(variables.get(pos + 1)) + "");
+        }
     }
 
-    public String Division(int indexOfOperation) {
-        double result = Double.parseDouble(variables.get(indexOfOperation)) / Double.parseDouble(variables.get(indexOfOperation + 1));
-        return Double.toString(result);
-    }
-
-    //  After Executing each operation, Refactor method will place Result in index 0 of Variables ArrayList
-    // and
-    // will delete Second variable in Variables ArrayList
-    public void Refactor(int indexOfOperation, String result) {
-        variables.set(indexOfOperation, result);
-        variables.remove(indexOfOperation + 1);
-        operations.remove(indexOfOperation);
+    public void Division(int pos) {
+        if (variables.get(pos + 1) == null) {
+            if (variables.get(pos).equals("0"))
+                et.setText("Error");
+        } else {
+            variables.set(pos, Double.parseDouble(variables.get(pos)) / Double.parseDouble(variables.get(pos + 1)) + "");
+        }
     }
 
     private void setListenerForNumbersButton() {
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                numberAfterEqual(equalEffect, et);
                 et.setText(et.getText() + "1");
                 TempVariable += "1";
 
@@ -234,6 +261,7 @@ public class MainActivity extends AppCompatActivity {
         bt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                numberAfterEqual(equalEffect, et);
                 et.setText(et.getText() + "2");
                 TempVariable += "2";
 
@@ -243,6 +271,7 @@ public class MainActivity extends AppCompatActivity {
         bt3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                numberAfterEqual(equalEffect, et);
                 et.setText(et.getText() + "3");
                 TempVariable += "3";
 
@@ -252,6 +281,7 @@ public class MainActivity extends AppCompatActivity {
         bt4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                numberAfterEqual(equalEffect, et);
                 et.setText(et.getText() + "4");
                 TempVariable += "4";
 
@@ -261,6 +291,7 @@ public class MainActivity extends AppCompatActivity {
         bt5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                numberAfterEqual(equalEffect, et);
                 et.setText(et.getText() + "5");
                 TempVariable += "5";
 
@@ -270,6 +301,7 @@ public class MainActivity extends AppCompatActivity {
         bt6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                numberAfterEqual(equalEffect, et);
                 et.setText(et.getText() + "6");
                 TempVariable += "6";
 
@@ -279,6 +311,7 @@ public class MainActivity extends AppCompatActivity {
         bt7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                numberAfterEqual(equalEffect, et);
                 et.setText(et.getText() + "7");
                 TempVariable += "7";
 
@@ -288,6 +321,7 @@ public class MainActivity extends AppCompatActivity {
         bt8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                numberAfterEqual(equalEffect, et);
                 et.setText(et.getText() + "8");
                 TempVariable += "8";
 
@@ -297,6 +331,7 @@ public class MainActivity extends AppCompatActivity {
         bt9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                numberAfterEqual(equalEffect, et);
                 et.setText(et.getText() + "9");
                 TempVariable += "9";
 
@@ -306,6 +341,7 @@ public class MainActivity extends AppCompatActivity {
         bt0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                numberAfterEqual(equalEffect, et);
                 et.setText(et.getText() + "0");
                 TempVariable += "0";
             }
@@ -314,8 +350,12 @@ public class MainActivity extends AppCompatActivity {
         btPoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                et.setText(et.getText() + ".");
-                TempVariable += ".";
+                if (containPoint(TempVariable))
+                    Log.v("Button Point", "prevent adding point");
+                else {
+                    et.setText(et.getText() + ".");
+                    TempVariable += ".";
+                }
             }
         });
 
@@ -342,4 +382,115 @@ public class MainActivity extends AppCompatActivity {
         btSubtraction = findViewById(R.id.buttonSubtraction);
         btMultiplication = findViewById(R.id.buttonMultiplication);
     }
+
+    public boolean containPoint(String number) {
+        char[] charNumber = number.toCharArray();
+        for (char c : charNumber) {
+            if (c == '.')
+                return true;
+        }
+        return false;
+    }
+
+    public Editable shrink(Editable text, String sign) {
+        text.delete(text.length() - 1, text.length());
+        return text.insert(text.length(), sign);
+    }
+
+    public void EqualMethodConditions() {
+        if (!TempVariable.equals("")) {
+            variables.add(TempVariable);
+            TempVariable = "";
+        }
+        if (variables.size() == operations.size() && variables.size() != 0) {
+            operations.remove(operations.size() - 1);
+        }
+        if (variables.size() == 0)
+            et.setText("");
+
+        if (variables.size() == 1)
+            et.setText(variables.get(0));
+    }
+
+    public void CheckForErrors() {
+        for (String num : variables) {
+            if (unrecognizable_NumberFormat(num))
+                Error = true;
+        }
+    }
+
+    public boolean unrecognizable_NumberFormat(String number) {
+        return number.equals(".");
+    }
+
+    public void Clear() {
+        variables.clear();
+        operations.clear();
+        et.setText("");
+        TempVariable = "";
+        equalEffect = false;
+    }
+
+    // reaction for number button after Equal operation
+    public void numberAfterEqual(boolean key, EditText editText) {
+        if (key || Error) {
+            Error = false;
+            editText.setText("");
+            variables.clear();
+            operations.clear();
+            TempVariable = "";
+            this.equalEffect = false;
+        }
+    }
+
+    //  reaction for operation button after Equal operation
+    public void operatorAfterEqual(boolean key) {
+        if (Error) {
+            et.setText("");
+            Error = false;
+            Clear();
+        }
+        if (key) {
+            variables.clear();
+            operations.clear();
+            this.equalEffect = false;
+        }
+    }
+
+    public boolean CulculateForPriorityOne(int position, String Operation) {
+        switch (Operation) {
+            case "multiple":
+                Multiple(position);
+                variables.remove(position + 1);
+                operations.remove(position);
+                return true;
+            case "division":
+                if (variables.get(position).equals("0"))
+                    Error = true;
+                Division(position);
+                variables.remove(position + 1);
+                operations.remove(position);
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    public boolean CulculateForPriorityTwo(int position, String Operation) {
+        switch (Operation) {
+            case "plus":
+                Plus(position);
+                variables.remove(position + 1);
+                operations.remove(position);
+                return true;
+            case "minus":
+                Minus(position);
+                variables.remove(position + 1);
+                operations.remove(position);
+                return true;
+            default:
+                return false;
+        }
+    }
+
 }
