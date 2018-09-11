@@ -195,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
                 operations.clear();
                 variables.clear();
                 equalEffect = true;
-                pointEffect=false;
+                pointEffect = false;
             }
         });
     }
