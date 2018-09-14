@@ -4,7 +4,7 @@ BasicCalculator.iml
 app/app.iml
 .idea/workspace.xml
 .idea/modules.xml
-.idea/misc.xml~parent of 9e8e456... nothing
+
 .idea/libraries/Gradle__org_hamcrest_hamcrest_library_1_3_jar.xml
 .idea/libraries/Gradle__org_hamcrest_hamcrest_integration_1_3_jar.xml
 .idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3_jar.xml
