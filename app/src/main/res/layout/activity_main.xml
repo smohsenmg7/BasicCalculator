@@ -46,7 +46,12 @@
         android:layout_above="@+id/buttonEqual"
         android:layout_alignStart="@+id/buttonEqual"
 <<<<<<< HEAD
+<<<<<<< HEAD
         android:text="." />
+=======
+        android:text="."
+        android:layout_alignLeft="@+id/buttonEqual" />
+>>>>>>> parent of 9e2a195... new user interface
 =======
         android:text="."
         android:layout_alignLeft="@+id/buttonEqual" />
@@ -59,7 +64,12 @@
         android:layout_alignTop="@+id/buttonPoint"
         android:layout_toEndOf="@+id/buttonPoint"
 <<<<<<< HEAD
+<<<<<<< HEAD
         android:text="0" />
+=======
+        android:text="0"
+        android:layout_toRightOf="@+id/buttonPoint" />
+>>>>>>> parent of 9e2a195... new user interface
 =======
         android:text="0"
         android:layout_toRightOf="@+id/buttonPoint" />
@@ -72,7 +82,12 @@
         android:layout_above="@+id/buttonEqual"
         android:layout_toEndOf="@+id/button0"
 <<<<<<< HEAD
+<<<<<<< HEAD
         android:text="c" />
+=======
+        android:text="c"
+        android:layout_toRightOf="@+id/button0" />
+>>>>>>> parent of 9e2a195... new user interface
 =======
         android:text="c"
         android:layout_toRightOf="@+id/button0" />
@@ -85,7 +100,12 @@
         android:layout_above="@+id/buttonEqual"
         android:layout_alignEnd="@+id/buttonEqual"
 <<<<<<< HEAD
+<<<<<<< HEAD
         android:text="+" />
+=======
+        android:text="+"
+        android:layout_alignRight="@+id/buttonEqual" />
+>>>>>>> parent of 9e2a195... new user interface
 =======
         android:text="+"
         android:layout_alignRight="@+id/buttonEqual" />
@@ -98,7 +118,12 @@
         android:layout_above="@+id/buttonPoint"
         android:layout_alignStart="@+id/editTextView"
 <<<<<<< HEAD
+<<<<<<< HEAD
         android:text="1" />
+=======
+        android:text="1"
+        android:layout_alignLeft="@+id/editTextView" />
+>>>>>>> parent of 9e2a195... new user interface
 =======
         android:text="1"
         android:layout_alignLeft="@+id/editTextView" />
@@ -111,7 +136,12 @@
         android:layout_above="@+id/buttonPoint"
         android:layout_toEndOf="@+id/buttonPoint"
 <<<<<<< HEAD
+<<<<<<< HEAD
         android:text="2" />
+=======
+        android:text="2"
+        android:layout_toRightOf="@+id/buttonPoint" />
+>>>>>>> parent of 9e2a195... new user interface
 =======
         android:text="2"
         android:layout_toRightOf="@+id/buttonPoint" />
@@ -132,7 +162,12 @@
         android:layout_above="@+id/buttonPoint"
         android:layout_alignEnd="@+id/editTextView"
 <<<<<<< HEAD
+<<<<<<< HEAD
         android:text="_" />
+=======
+        android:text="_"
+        android:layout_alignRight="@+id/editTextView" />
+>>>>>>> parent of 9e2a195... new user interface
 =======
         android:text="_"
         android:layout_alignRight="@+id/editTextView" />
@@ -145,7 +180,12 @@
         android:layout_above="@+id/button1"
         android:layout_alignStart="@+id/editTextView"
 <<<<<<< HEAD
+<<<<<<< HEAD
         android:text="4" />
+=======
+        android:text="4"
+        android:layout_alignLeft="@+id/editTextView" />
+>>>>>>> parent of 9e2a195... new user interface
 =======
         android:text="4"
         android:layout_alignLeft="@+id/editTextView" />
@@ -158,7 +198,12 @@
         android:layout_above="@+id/button1"
         android:layout_toEndOf="@+id/button1"
 <<<<<<< HEAD
+<<<<<<< HEAD
         android:text="5" />
+=======
+        android:text="5"
+        android:layout_toRightOf="@+id/button1" />
+>>>>>>> parent of 9e2a195... new user interface
 =======
         android:text="5"
         android:layout_toRightOf="@+id/button1" />
@@ -179,7 +224,12 @@
         android:layout_above="@+id/button1"
         android:layout_alignEnd="@+id/editTextView"
 <<<<<<< HEAD
+<<<<<<< HEAD
         android:text="×" />
+=======
+        android:text="×"
+        android:layout_alignRight="@+id/editTextView" />
+>>>>>>> parent of 9e2a195... new user interface
 =======
         android:text="×"
         android:layout_alignRight="@+id/editTextView" />
@@ -192,7 +242,12 @@
         android:layout_above="@+id/button4"
         android:layout_alignStart="@+id/editTextView"
 <<<<<<< HEAD
+<<<<<<< HEAD
         android:text="7" />
+=======
+        android:text="7"
+        android:layout_alignLeft="@+id/editTextView" />
+>>>>>>> parent of 9e2a195... new user interface
 =======
         android:text="7"
         android:layout_alignLeft="@+id/editTextView" />
@@ -205,7 +260,12 @@
         android:layout_above="@+id/button4"
         android:layout_toEndOf="@+id/buttonPoint"
 <<<<<<< HEAD
+<<<<<<< HEAD
         android:text="8" />
+=======
+        android:text="8"
+        android:layout_toRightOf="@+id/buttonPoint" />
+>>>>>>> parent of 9e2a195... new user interface
 =======
         android:text="8"
         android:layout_toRightOf="@+id/buttonPoint" />
@@ -226,7 +286,12 @@
         android:layout_above="@+id/button4"
         android:layout_alignEnd="@+id/editTextView"
 <<<<<<< HEAD
+<<<<<<< HEAD
         android:text="÷" />
+=======
+        android:text="÷"
+        android:layout_alignRight="@+id/editTextView" />
+>>>>>>> parent of 9e2a195... new user interface
 =======
         android:text="÷"
         android:layout_alignRight="@+id/editTextView" />
