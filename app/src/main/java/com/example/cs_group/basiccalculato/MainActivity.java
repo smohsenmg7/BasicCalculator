@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
         bt8 = findViewById(R.id.button8);
         bt9 = findViewById(R.id.button9);
         btEqual = findViewById(R.id.buttonEqual);
-//        btClear = findViewById(R.id.buttonClear);
+        btClear = findViewById(R.id.buttonClear);
         btPoint = findViewById(R.id.buttonPoint);
         btDelete = findViewById(R.id.buttonDelete);
         btDivision = findViewById(R.id.buttonDivision);
