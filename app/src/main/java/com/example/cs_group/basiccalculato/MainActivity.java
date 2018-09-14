@@ -141,12 +141,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btClear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                OpsClick.start(et, "clear");
-            }
-        });
+//        btClear.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                OpsClick.start(et, "clear");
+//            }
+//        });
 
         btDelete.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
