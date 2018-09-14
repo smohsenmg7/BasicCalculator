@@ -22,7 +22,7 @@
     Design an EditText on top of layout for showing numbers and function>> ID: editTextView
     -->
 
-    <TextView
+    <EditText
         android:id="@+id/editTextView"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -198,7 +198,7 @@
                     android:textSize="25dp" />
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/buttonEqual"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -219,7 +219,7 @@
             >
 
             <Button
-                android:id="@+id/buttonClear"
+                android:id="@+id/buttonDelete"
                 style="?android:attr/buttonBarStyle"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
