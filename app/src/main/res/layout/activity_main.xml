@@ -29,7 +29,6 @@
         android:background="@color/white"
         android:gravity="right|center_vertical|center"
         android:padding="16dp"
-        android:text="TextView"
         android:textColor="@color/black"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
