@@ -52,9 +52,9 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="278dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0"
+            android:layout_weight="2.5"
             android:orientation="vertical"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="8dp">
@@ -212,7 +212,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
